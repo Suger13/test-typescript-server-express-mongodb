@@ -1,8 +1,23 @@
 "use strict";
+//======================PostgreSQL====================
+// import { Pool } from 'pg'
+// export default new Pool({
+//     max: 20,
+//     connectionString : process.env.URI || undefined,
+//     idleTimeoutMillis : 30000
+// })
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", { value: true });
-const pg_1 = require("pg");
-exports.default = new pg_1.Pool({
-    max: 20,
-    connectionString: process.env.PGURI || undefined,
-    idleTimeoutMillis: 30000
-});
+exports.db = exports.client = void 0;
+//======================MongoDB====================
+const mongodb_1 = require("mongodb");
+const dotenv_1 = __importDefault(require("dotenv"));
+dotenv_1.default.config();
+//insert URI in .env first
+const client = new mongodb_1.MongoClient(`${process.env.URI}`);
+exports.client = client;
+//select Database
+const db = client.db('test');
+exports.db = db;

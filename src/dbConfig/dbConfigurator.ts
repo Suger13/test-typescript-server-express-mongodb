@@ -8,12 +8,12 @@
 
 
 //======================MongoDB====================
-// import { MongoClient } from 'mongodb'
-// import dotenv from 'dotenv'
-// dotenv.config()
+import { MongoClient } from 'mongodb'
+import dotenv from 'dotenv'
+dotenv.config()
 
-// //insert URI in .env first
-// const client = new MongoClient(`${process.env.URI}`)
-// //select Database
-// const db = client.db('test')
-// export { client, db }
+//insert URI in .env first
+const client = new MongoClient(`${process.env.URI}`)
+//select Database
+const db = client.db('test')
+export { client, db }
