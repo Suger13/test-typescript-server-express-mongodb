@@ -1,8 +1,9 @@
 import express, {Express, Request, Response} from 'express';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import Route from './routes/route'
+import Route from './routes/userRoute'
 import bodyParser from 'body-parser'
+import userRoutes from './routes/userRoute'
 
 dotenv.config()
 
@@ -16,7 +17,7 @@ app.get('/', (req: Request, res: Response) => {
     })
 })
 
-app.use('/routePath', Route)
+app.use('/users', userRoutes)
 
 app.listen(port, () => {
     console.log(`server is running on port ${port}`)
